@@ -1,22 +1,19 @@
 # 🗃 BeStock 
-**_Se trata de un aplicación de uso empresarial abordando la problematica de la organizacion del inventario, traer soluciones como roles del personal con acceso a la administracion de la indumentaria,lo que necesitaremos una administracion de usuarios, tambien proporcionara estadisticas y graficos tanto de usuarios como de inventario, avisos mediante mensajes, comentarios de la administracion para los usuarios con roles especificos, chatbot para preguntas frecuentes, y otras funcionalidades que se tendran encuenta para lograr simplicidad y comodidad al control del inventario._**
+**_This is an enterprise application addressing the problem of inventory organisation, bringing solutions such as staff roles with access to clothing management, which will require user management, also providing statistics and graphs for both users and inventory, message alerts, management feedback for users with specific roles, chatbot for frequently asked questions, and other features that will be taken into account to achieve simplicity and convenience to inventory control._**
 
-# 📖 About
-Empecemos por la arquitectura del proyecto, se trata de una convicacion entre Clean Arquitectur junto con arquitectura DDD(diseño guiado por el dominio). Quiere decir que el software esta distribuido en capas de distintas funcionalidades heredadas por otras capas
+# 📖 Architecture
+Let's start with the architecture of the project, it is a combination of Clean Architecture and DDD (Domain Driven Design). This means that the software is distributed in layers of different functionalities inherited by other layers.
 
-Primera capa, trata de comunicarse con la base de datos llamada repositorio;
-Esta se hereda a la capa de logica de negocios, esta incluye la logica del negocio llamada services;
-Y esta capa se va a heredar a la presnetacion, siendo la forma en que se muestran los datos (vamos a utilizar API, pero se puede utilizar enventos, gRPC ..etc) en conjunto con el UI/UX, lleva el nombre de API en este caso.
+First layer, it tries to communicate with the database called repository;
+This is inherited to the business logic layer, this includes the business logic called services;
+And this layer is going to inherit to the presentation, being the way in which the data is displayed (we are going to use API, but you can use containers, gRPC ..etc) in conjunction with the UI/UX, it is called API in this case.
 
-Aclaracion de arquitectura:
-La capa de repositorio no puede tener referencias a capas superiores a la misma, es decir jamas se deberan importar elementos o funcionalidades de capas superiores, en GO el error es conocido como dependecia circular
+### Aclaracion de arquitectura:
+The repository layer cannot have references to layers above it, i.e. you should never import elements or functionalities from higher layers, in GO the error is known as circular dependency.
 
-Sigamos por las carpetas(Packages) en la app "Settings" llevara la configuracion de la aplicaion, el puerto en donde se comucara el REST API, la configuracion a las credenciales de la base de datos ..otros.
-
-## Otra carpeta/paquete llamada "Internal", En Golang existen propiedades especiales, todo lo que se refiera a un estado sensible de la aplicacion va dentro de esa carpeta, Golang va a ocultar el contenido de funcionalidades que trae este paquete, aca se encuentran las diferetes capas.
-
----
-
+Let's continue through the folders (Packages) in the app "Settings" will carry the configuration of the application, the port where the REST API will be configured, the configuration of the database credentials ..others.
+Another folder/package called "Internal", in Golang there are special properties, everything that refers to a sensitive state of the application goes inside this folder, Golang will hide the content of functionalities that this package brings, here are the different layers..
+ 
 ## 🛠️ Built with the packages: 
 
 - Embed: - Package embed provides access to files embedded in the running Go program.
